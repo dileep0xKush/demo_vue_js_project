@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Pre-commit check started..."
+
+npm run lint
+STATUS=$?
+
+if [ $STATUS -ne 0 ]; then
+  echo "Pre-commit FAILED: Lint errors or warnings found"
+  echo "Fix the issues and try committing again"
+  exit 1
+fi
+
+echo "Pre-commit PASSED: Code is clean"
+echo "Commit allowed"

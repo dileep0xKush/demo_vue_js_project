@@ -6,15 +6,30 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.ts,.js --max-warnings=0",
+    "lint:fix": "eslint . --ext .vue,.ts,.js --fix",
+    "format": "prettier --write .",
+    "test": "npm run health",
+    "prepare": "husky",
+    "health": "npm run lint && vue-tsc --noEmit && npm run build"
   },
   "dependencies": {
     "vue": "^3.5.24"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
+    "@typescript-eslint/parser": "^8.52.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.6.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "~5.9.3",
     "vite": "^7.2.4",
     "vue-tsc": "^3.1.4"
